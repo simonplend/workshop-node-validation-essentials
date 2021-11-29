@@ -3,7 +3,6 @@ import Ajv from "ajv";
 const ajv = new Ajv();
 
 import { readFile } from 'fs/promises';
-import { IncomingMessage, ServerResponse } from "http";
 
 /**
  * @param {string} filepath

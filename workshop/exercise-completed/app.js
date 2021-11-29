@@ -36,7 +36,8 @@ export function createHttpServer() {
     /**
      * TODO:
      */
-    if (["POST", "PUT", "PATCH"].includes(request.method || "")) {
+    const requestHasBody = ["POST", "PUT", "PATCH"].includes(request.method || "")
+    if (requestHasBody) {
       try {
         // @ts-ignore
         request.body = await parseJsonRequestBody(request);
