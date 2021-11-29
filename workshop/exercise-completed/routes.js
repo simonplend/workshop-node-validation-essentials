@@ -2,7 +2,7 @@ import Ajv from "ajv";
 
 const ajv = new Ajv();
 
-import { readFile } from 'fs/promises';
+import { readFile } from "fs/promises";
 
 /**
  * @param {string} filepath
@@ -37,7 +37,7 @@ export const routes = [
           title: "Invalid recipe object in request body",
           status: statusCode,
           // TODO: Is validateRecipe.errors guaranteed to be related to this request?
-          validationErrors: validateRecipe.errors
+          validationErrors: validateRecipe.errors,
         };
 
         response.statusCode = statusCode;
