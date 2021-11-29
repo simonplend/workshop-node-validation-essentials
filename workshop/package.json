@@ -1,0 +1,9 @@
+{
+  "name": "workshop",
+  "type": "module",
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "simple-get": "^4.0.0",
+    "tap": "^15.1.5"
+  }
+}

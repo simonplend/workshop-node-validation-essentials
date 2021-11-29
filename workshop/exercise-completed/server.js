@@ -1,6 +1,6 @@
-import { createServer } from "./app.js";
+import { createHttpServer } from "./app.js";
 
-const server = createServer();
+const server = createHttpServer();
 
 const port = process.env.PORT || 3000;
 

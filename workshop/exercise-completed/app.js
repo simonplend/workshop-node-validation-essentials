@@ -1,13 +1,21 @@
-import http from "node:http";
+import { createServer, ServerResponse } from "node:http";
 
 import { routes } from "./routes.js";
 
-export function createServer() {
-  return http.createServer(async (request, response) => {
+/**
+ * @typedef {Object} ExtendedRequestType
+ * @property {Object} body
+ *
+ * @typedef {import("node:http").IncomingMessage & ExtendedRequestType} ExtendedRequest
+ */
+
+export function createHttpServer() {
+  return createServer(
+    async (request, response) => {
     /**
      * TODO:
      */
-    const requestUrl = new URL(request.url, `http://${request.headers.host}`);
+    const requestUrl = new URL(request.url || "", `http://${request.headers.host}`);
     const matchingRoute = routes.find((route) => {
       return (
         route.method === request.method && route.path === requestUrl.pathname
@@ -28,8 +36,9 @@ export function createServer() {
     /**
      * TODO:
      */
-    if (["POST", "PUT", "PATCH"].includes(request.method)) {
+    if (["POST", "PUT", "PATCH"].includes(request.method || "")) {
       try {
+        // @ts-ignore
         request.body = await parseJsonRequestBody(request);
       } catch (error) {
         /**
@@ -40,10 +49,13 @@ export function createServer() {
       }
     }
 
+    // @ts-ignore
     await matchingRoute.handler(request, response);
   });
 }
 
+
+/** @param {import("node:http").IncomingMessage} request */
 async function parseJsonRequestBody(request) {
   const bodyChunks = [];
   for await (const chunk of request) {

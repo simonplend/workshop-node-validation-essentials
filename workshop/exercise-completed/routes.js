@@ -2,40 +2,35 @@ import Ajv from "ajv";
 
 const ajv = new Ajv();
 
-const recipeSchema = {
-  type: "object",
-  required: ["name", "ingredients"],
-  properties: {
-    name: {
-      type: "string",
-      minLength: 1,
-      maxLength: 100,
-    },
-    ingredients: {
-      type: "array",
-      minItems: 1,
-      items: {
-        type: "string",
-        minLength: 1,
-        maxLength: 100,
-      },
-    },
-    time: {
-      type: "integer",
-      minimum: 1,
-    },
-  },
-  additionalProperties: false,
-};
+import { readFile } from 'fs/promises';
+import { IncomingMessage, ServerResponse } from "http";
+
+/**
+ * @param {string} filepath
+ * @param {string} basePath
+ * @returns {Promise<Object>}
+ */
+async function loadJsonFile(filepath, basePath) {
+  // @ts-ignore
+  return JSON.parse(await readFile(new URL(filepath, basePath)));
+}
+
+// @ts-ignore
+const recipeSchema = await loadJsonFile(
+  "./schemas/recipe.schema.json",
+  import.meta.url
+);
 
 export const routes = [
   {
     method: "POST",
     path: "/recipes",
+    /** @type {import("./types").HandlerWithTypedBody<import("./types/schemas/recipe.schema").RecipeSchema>} */
     handler: async function (request, response) {
+      const recipe = request.body;
       const validateRecipe = ajv.compile(recipeSchema);
 
-      if (!validateRecipe(request.body)) {
+      if (!validateRecipe(recipe)) {
         const statusCode = 422;
 
         const problemDetails = {
@@ -57,7 +52,7 @@ export const routes = [
 
       response.statusCode = 201;
       response.setHeader("Content-Type", "application/json");
-      response.end(JSON.stringify(request.body));
+      response.end(JSON.stringify(recipe));
     },
   },
 ];

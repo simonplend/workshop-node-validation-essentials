@@ -13,4 +13,5 @@ cd <APPLICATION_DIRECTORY>
 npm run start
 ```
 
+TODO: Update
 Then follow the [testing steps](TESTING.md).

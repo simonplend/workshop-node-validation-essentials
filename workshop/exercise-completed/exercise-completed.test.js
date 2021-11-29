@@ -1,8 +1,8 @@
 import { test } from "tap";
 import get from "simple-get";
-const sget = get.concat;
+const makeRequest = get.concat;
 
-import { createServer } from "../src/app.js";
+import { createServer } from "./app.js";
 
 test("POST /recipes route", async (t) => {
   const server = createServer();
@@ -27,7 +27,7 @@ test("POST /recipes route", async (t) => {
       ingredients: ["parsley", "2 lemons"],
     };
 
-    sget(
+    makeRequest(
       {
         url: t.context.rootUrl + "/recipes",
         method: "POST",
@@ -48,7 +48,7 @@ test("POST /recipes route", async (t) => {
   t.test("should send an error response when request body is invalid", (t) => {
     t.plan(2);
 
-    sget(
+    makeRequest(
       {
         url: t.context.rootUrl + "/recipes",
         method: "POST",
