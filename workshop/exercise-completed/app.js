@@ -1,19 +1,12 @@
-import { createServer, ServerResponse } from "node:http";
+import { createServer } from "node:http";
 
 import { routes } from "./routes.js";
-
-/**
- * @typedef {Object} ExtendedRequestType
- * @property {Object} body
- *
- * @typedef {import("node:http").IncomingMessage & ExtendedRequestType} ExtendedRequest
- */
 
 export function createHttpServer() {
   return createServer(
     async (request, response) => {
     /**
-     * TODO:
+     * TODO: Add comment.
      */
     const requestUrl = new URL(request.url || "", `http://${request.headers.host}`);
     const matchingRoute = routes.find((route) => {
@@ -23,7 +16,7 @@ export function createHttpServer() {
     });
 
     /**
-     * TODO:
+     * TODO: Add comment.
      */
     const foundMatchingRoute =
       matchingRoute && typeof matchingRoute?.handler === "function";
@@ -34,7 +27,7 @@ export function createHttpServer() {
     }
 
     /**
-     * TODO:
+     * TODO: Add comment.
      */
     const requestHasBody = ["POST", "PUT", "PATCH"].includes(request.method || "")
     if (requestHasBody) {
@@ -54,7 +47,6 @@ export function createHttpServer() {
     await matchingRoute.handler(request, response);
   });
 }
-
 
 /** @param {import("node:http").IncomingMessage} request */
 async function parseJsonRequestBody(request) {

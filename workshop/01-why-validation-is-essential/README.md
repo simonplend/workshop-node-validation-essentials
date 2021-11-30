@@ -2,6 +2,13 @@
 
 ...
 
+## 🏋️ TODO: Exercise 1.1
+
+**Prevent the application from crashing when the request data is invalid.**
+
+- Check the request body data.
+- Send an HTTP error response.
+
 <!--
 
 Outline:

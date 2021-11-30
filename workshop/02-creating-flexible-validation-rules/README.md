@@ -2,6 +2,21 @@
 
 ...
 
+## 🏋️ TODO: Exercise 2.1
+
+**Validate request data against a JSON Schema with Ajv.**
+
+- Define a JSON schema.
+- Integrate the Ajv library.
+- Compile schema with Ajv.
+- Validate request data against the JSON schema.
+
+## 🏋️ TODO: Exercise 2.2
+
+**Ensure that the recipe title is unique.**
+
+- ...
+
 <!--
 
 Outline:

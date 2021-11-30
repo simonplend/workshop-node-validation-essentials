@@ -1,24 +1,10 @@
 import Ajv from "ajv";
 
-const ajv = new Ajv();
-
-import { readFile } from "fs/promises";
-
 /**
- * @param {string} filepath
- * @param {string} basePath
- * @returns {Promise<Object>}
+ * TODO: Implement custom validation function.
  */
-async function loadJsonFile(filepath, basePath) {
-  // @ts-ignore
-  return JSON.parse(await readFile(new URL(filepath, basePath)));
-}
 
-// @ts-ignore
-const recipeSchema = await loadJsonFile(
-  "./schemas/recipe.schema.json",
-  import.meta.url
-);
+const ajv = new Ajv();
 
 export const routes = [
   {
@@ -55,3 +41,25 @@ export const routes = [
     },
   },
 ];
+
+/**
+ * TODO: Move this out.
+ */
+
+import { readFile } from "node:fs/promises";
+
+/**
+ * @param {string} filepath
+ * @param {string} basePath
+ * @returns {Promise<Object>}
+ */
+async function loadJsonFile(filepath, basePath) {
+  // @ts-ignore
+  return JSON.parse(await readFile(new URL(filepath, basePath)));
+}
+
+// @ts-ignore
+const recipeSchema = await loadJsonFile(
+  "./schemas/recipe.schema.json",
+  import.meta.url
+);

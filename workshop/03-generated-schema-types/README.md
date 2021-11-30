@@ -2,6 +2,13 @@
 
 ...
 
+
+## 🏋️ TODO: Exercise 3.1
+
+**Integrate a generated schema type and eliminate the bug.**
+
+- ...
+
 <!--
 
 Outline:

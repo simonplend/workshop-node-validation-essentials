@@ -2,6 +2,14 @@
 
 ...
 
+## 🏋️ TODO: Exercise 4.1
+
+**Send validation errors in a problem details error response.**
+
+- Define a problem type.
+- Construct a problem details object.
+- Send the problem details in an HTTP error response.
+
 <!--
 
 Outline:
