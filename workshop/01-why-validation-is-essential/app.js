@@ -1,9 +1,6 @@
 import { createServer } from "node:http";
 
-/**
- * TODO: Change this to await import
- */
-import { routes } from "./routes.js";
+const { routes } = await import("./routes.js");
 
 /**
  * Creates a new HTTP server instance.
