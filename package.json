@@ -1,7 +1,7 @@
 {
   "name": "workshop-node-validation-essentials",
   "scripts": {
-    "postinstall": "npm install --prefix applications/fastify-javascript",
+    "postinstall": "npm install --prefix workshop/01-why-validation-is-essential",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

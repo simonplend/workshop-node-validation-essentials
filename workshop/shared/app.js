@@ -1,8 +1,5 @@
 import { createServer } from "node:http";
 
-const routesPath = process.argv[2] || "./routes.js";
-const { routes } = await import(routesPath);
-
 /**
  * Creates a new HTTP server instance.
  *
@@ -11,7 +8,9 @@ const { routes } = await import(routesPath);
  *
  * @returns {import("node:http").Server}
  */
-export function createHttpServer() {
+export async function createHttpServer(options = {}) {
+  const { routes } = await import(options.routesPath);
+
   return createServer(
     async (request, response) => {
     /**

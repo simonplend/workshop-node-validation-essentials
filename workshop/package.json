@@ -1,6 +1,10 @@
 {
   "name": "workshop",
   "type": "module",
+  "scripts": {
+    "start": "nodemon shared/server.js -- $(realpath $npm_config_part/routes.js)",
+    "test": "tap --reporter spec --no-coverage --jobs 1 --timeout 10 --"
+  },
   "devDependencies": {
     "nodemon": "^2.0.15",
     "simple-get": "^4.0.0",

@@ -48,6 +48,10 @@ Just before the workshop begins, please open:
 - This project in your code editor.
 - A terminal window for running commands.
 
+In the terminal window, `cd` into the `workshop` directory in this project.
+
+You're now ready for the workshop! 🙌
+
 ## License
 
 Licensed under [MIT License](./LICENSE.md).

@@ -1,5 +1,11 @@
 # Example application: Fastify with JavaScript
 
+## Setup
+
+```bash
+npm install
+```
+
 ## Run the server in development mode
 
 Start the server with [nodemon](https://www.npmjs.com/package/nodemon):

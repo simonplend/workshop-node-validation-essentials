@@ -1,11 +1,15 @@
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 import { test } from "tap";
 import get from "simple-get";
 const makeRequest = get.concat;
 
-import { createHttpServer } from "../app.js";
+import { createHttpServer } from "../../shared/app.js";
 
 test("POST /recipes route", async (t) => {
-  const server = createHttpServer();
+  const server = await createHttpServer({ routesPath: resolve(`${__dirname}/../routes.js`) });
 
   t.beforeEach(() => {
     return new Promise((resolve, reject) => {

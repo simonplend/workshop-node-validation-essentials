@@ -22,14 +22,14 @@ TODO: Introduce recipes API
 
 Explore the recipes API code:
 
-- **[app.js](app.js)** — Basic HTTP server implementation using Node.js core [http](https://nodejs.org/api/http.html) module.
-- **[server.js](server.js)** — Initialises new HTTP server instance.
+- **[app.js](../shared/app.js)** — Basic HTTP server implementation using Node.js core [http](https://nodejs.org/api/http.html) module.
+- **[server.js](../shared/server.js)** — Initialises new HTTP server instance.
 - **[routes.js](routes.js)** — Contains a skeleton route for you to develop with.
 
 ## Start your server and check it's running
 
 ```sh
-npm run start:dev
+npm start --part=01-why-validation-is-essential
 ```
 
 Make a valid `POST` request with [cURL](https://curl.se/) to the `/recipes` endpoint:
@@ -191,7 +191,7 @@ You're now going to fix these issues in the first exercise! 🐛
 Check your work by running:
 
 ```sh
-npm test test/routes.exercise-1.1.test.js
+npm test 01-why-validation-is-essential/test/routes.exercise-1.1.test.js
 ```
 
 <details>
@@ -223,7 +223,7 @@ code, which is not appropriate in this context.
 Check your work by running:
 
 ```sh
-npm test test/routes.exercise-1.2.test.js
+npm test 01-why-validation-is-essential/test/routes.exercise-1.2.test.js
 ```
 
 <details>

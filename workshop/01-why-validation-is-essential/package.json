@@ -1,12 +1,4 @@
 {
   "name": "01-why-validation-is-essential",
-  "type": "module",
-  "scripts": {
-    "start:dev": "nodemon server.js -- ./routes.js",
-    "start:completed": "nodemon server.js -- ./completed/routes.exercise-1.2.completed.js",
-    "test": "tap --reporter spec --no-coverage --jobs 1 --timeout 10 --"
-  },
-  "devDependencies": {
-    "tap": "^15.1.5"
-  }
+  "type": "module"
 }
