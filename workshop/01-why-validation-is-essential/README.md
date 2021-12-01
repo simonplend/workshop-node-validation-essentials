@@ -24,6 +24,7 @@ Explore the recipes API code:
 
 - **[app.js](../shared/app.js)** — Basic HTTP server implementation using Node.js core [http](https://nodejs.org/api/http.html) module.
 - **[server.js](../shared/server.js)** — Initialises new HTTP server instance.
+- **[database.js](../shared/database.js)** — A mock database layer.
 - **[routes.js](routes.js)** — Contains a skeleton route for you to develop with.
 
 ## Start your server and check it's running
