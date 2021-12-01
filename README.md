@@ -8,7 +8,7 @@ _Created by [Simon Plenderleith](https://twitter.com/simonplend)._
 
 ## Requirements
 
-- Node.js >= `v14.17.0` or >= `v16.13.0` ([how to install](https://nodejs.dev/learn/how-to-install-nodejs))
+- Node.js >= `v14.17.0` or >= `v16.0.0` ([how to install](https://nodejs.dev/learn/how-to-install-nodejs))
 
 To verify that you have the version of Node.js that you need for this workshop,
 you can run this command in your terminal:
