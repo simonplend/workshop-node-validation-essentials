@@ -59,21 +59,21 @@ Open [routes.js](routes.js) in your code editor.
 Set the route `method` to `"POST"`:
 
 ```diff
--     method: "" /** TODO */,
+-     method: "", /** TODO */
 +     method: "POST",
 ```
 
 Set the route `path` to `"/recipes"`:
 
 ```diff
--     path: "" /** TODO */,
+-     path: "", /** TODO */
 +     path: "/recipes",
 ```
 
 Set the `recipe` variable to `request.body`:
 
 ```diff
--      const recipe = {} /** TODO */;
+-      const recipe = {}; /** TODO */
 +      const recipe = request.body;
 ```
 
@@ -81,7 +81,7 @@ Set `response.statusCode` to `201` ([Created](https://httpstatuses.com/201))
 to indicate that the new recipe was successfully created:
 
 ```diff
--         response.statusCode = 0 /** TODO */;
+-         response.statusCode = 0; /** TODO */
 +         response.statusCode = 201;
 ```
 
@@ -118,7 +118,7 @@ You will be sending a JSON formatted response body. You can indicate this to
 the client by setting the `Content-Type` header to `"application/json"`:
 
 ```diff
--         response.setHeader("Content-Type", "" /** TODO */);
+-         response.setHeader("Content-Type", ""); /** TODO */
 +         response.setHeader("Content-Type", "application/json");
 ```
 
@@ -126,7 +126,7 @@ Format the `newRecipe` JavaScript object as a JSON string. Then write it
 to the HTTP response stream with the `response.write` method:
 
 ```diff
--         response.write("" /** TODO */);
+-         response.write(""); /** TODO */
 +         response.write(JSON.stringify(newRecipe));
 ```
 
@@ -162,7 +162,7 @@ Set `response.statusCode` to `500` ([Internal Server Error](https://httpstatuses
 to indicate that there was an error creating the new recipe:
 
 ```diff
--         response.statusCode = 0 /** TODO */;
+-         response.statusCode = 0; /** TODO */
 +         response.statusCode = 500;
 ```
 
