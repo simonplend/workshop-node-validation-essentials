@@ -35,22 +35,10 @@ and then add basic validation and error handling to it.
 npm start
 ```
 
-Make a `POST` request with [cURL](https://curl.se/) to the `/recipes` endpoint:
+Make a valid `POST` request with [cURL](https://curl.se/) to the `/recipes` endpoint:
 
 ```sh
-curl --verbose \
-  --request POST \
-  --url http://localhost:3000/recipes \
-  --header 'Content-Type: application/json' \
-  --data '{
-		"name": "Tabbouleh",
-		"ingredients": [
-			"parsley",
-			"2 lemons",
-			"cucumber",
-			"bulgur"
-		]
-	}'
+make valid-request
 ```
 
 You should receive an HTTP 404 ([Not Found](https://httpstatuses.com/404)) error
@@ -95,22 +83,10 @@ to indicate that the new recipe was successfully created:
 +         response.statusCode = 201;
 ```
 
-Make a `POST` request to the `/recipes` endpoint:
+Make a valid `POST` request to the `/recipes` endpoint:
 
 ```sh
-curl --verbose \
-  --request POST \
-  --url http://localhost:3000/recipes \
-  --header 'Content-Type: application/json' \
-  --data '{
-		"name": "Tabbouleh",
-		"ingredients": [
-			"parsley",
-			"2 lemons",
-			"cucumber",
-			"bulgur"
-		]
-	}'
+make valid-request
 ```
 
 You should receive an HTTP 201 ([Created](https://httpstatuses.com/201)) response
@@ -150,22 +126,10 @@ to the HTTP response stream with the `response.write` method:
 +         response.write(JSON.stringify(newRecipe));
 ```
 
-Make a `POST` request to the `/recipes` endpoint:
+Make a valid `POST` request to the `/recipes` endpoint:
 
 ```sh
-curl --verbose \
-  --request POST \
-  --url http://localhost:3000/recipes \
-  --header 'Content-Type: application/json' \
-  --data '{
-		"name": "Tabbouleh",
-		"ingredients": [
-			"parsley",
-			"2 lemons",
-			"cucumber",
-			"bulgur"
-		]
-	}'
+make valid-request
 ```
 
 You should receive an HTTP 201 ([Created](https://httpstatuses.com/201)) response
@@ -203,14 +167,7 @@ property is invalid. Instead of it being an array of ingredients, send them
 as a comma separated string i.e. `"parsley, 2 lemons, cucumber, bulgur"`:
 
 ```sh
-curl --verbose \
-  --request POST \
-  --url http://localhost:3000/recipes \
-  --header 'Content-Type: application/json' \
-  --data '{
-		"name": "Tabbouleh",
-		"ingredients": "parsley, 2 lemons, cucumber, bulgur"
-	}'
+make invalid-request
 ```
 
 You should receive the following error from cURL:
