@@ -189,7 +189,7 @@ You're now going to fix these issues in the first exercise! 🐛
 - Check the `recipe` object has an `ingredients` property.
 - Check that the `ingredients` property is an array.
 - Check that the `ingredients` array has 1 or more items.
-- TODO: Return
+- `return` to stop the route handler function continuing.
 
 Check your work by running:
 
