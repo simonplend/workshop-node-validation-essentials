@@ -54,6 +54,8 @@ response like this:
 
 ## Configure the route for creating new recipes
 
+Open [routes.js](routes.js) in your code editor.
+
 Set the route `method` to `"POST"`:
 
 ```diff
@@ -193,7 +195,7 @@ You're now going to fix these issues in the first exercise! 🐛
 
 **Goal: Prevent the application accepting invalid recipe ingredients.**
 
-- Check the request body object has an `ingredients` property.
+- Check the `recipe` object has an `ingredients` property.
 - Check that the `ingredients` property is an array.
 - Check that the `ingredients` array has 1 or more items.
 - TODO: Return
