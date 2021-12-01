@@ -1,0 +1,8 @@
+{
+  "name": "01-why-validation-is-essential",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "tap"
+  }
+}
