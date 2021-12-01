@@ -44,12 +44,14 @@ TODO
 ```
 -->
 
-Just before the workshop begins, please open:
+## Just before the workshop begins
+
+Please open:
 
 - This project in your code editor.
 - A terminal window for running commands.
 
-In the terminal window, `cd` into the `workshop` directory in this project.
+In your terminal, `cd` into the `workshop` directory in this project.
 
 You're now ready for the workshop! 🙌
 
