@@ -209,6 +209,8 @@ npm run <TODO>
 
 **Send an appropriate HTTP error status code when the ingredients are invalid.**
 
+TODO: The HTTP response status code is currently 200 ([OK](TODO)) when the recipe ingredients are invalid.
+
 - Pick the appropriate 4×× Client Error status code from [httpstatuses.com](https://httpstatuses.com/).
 - Set the response HTTP status code.
 
