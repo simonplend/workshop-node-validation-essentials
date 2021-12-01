@@ -50,7 +50,7 @@ test("POST /recipes route", async (t) => {
     );
   });
 
-  t.test("should send a 200 (OK) response when request body is missing an `ingredients` property", (t) => {
+  t.test("should send an error response when request body is missing an `ingredients` property", (t) => {
     t.plan(2);
 
     makeRequest(
@@ -66,12 +66,12 @@ test("POST /recipes route", async (t) => {
       },
       (error, response, responseBody) => {
         t.error(error);
-        t.equal(response.statusCode, 200);
+        t.equal(response.statusCode, 422);
       }
     );
   });
 
-  t.test("should send a 200 (OK) response when request body `ingredients` property is a string", (t) => {
+  t.test("should send an error response when request body `ingredients` property is a string", (t) => {
     t.plan(2);
 
     makeRequest(
@@ -88,12 +88,12 @@ test("POST /recipes route", async (t) => {
       },
       (error, response, responseBody) => {
         t.error(error);
-        t.equal(response.statusCode, 200);
+        t.equal(response.statusCode, 422);
       }
     );
   });
 
-  t.test("should send a 200 (OK) response when request body `ingredients` property is an array with 0 items", (t) => {
+  t.test("should send an error response when request body `ingredients` property is an array with 0 items", (t) => {
     t.plan(2);
 
     makeRequest(
@@ -110,7 +110,7 @@ test("POST /recipes route", async (t) => {
       },
       (error, response, responseBody) => {
         t.error(error);
-        t.equal(response.statusCode, 200);
+        t.equal(response.statusCode, 422);
       }
     );
   });

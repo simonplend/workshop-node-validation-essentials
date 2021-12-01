@@ -191,7 +191,7 @@ You're now going to fix these issues in the first exercise! 🐛
 Check your work by running:
 
 ```sh
-npm run <TODO>
+npm test test/routes.exercise-1.1.test.js
 ```
 
 <details>
@@ -223,7 +223,7 @@ code, which is not appropriate in this context.
 Check your work by running:
 
 ```sh
-npm run <TODO>
+npm test test/routes.exercise-1.2.test.js
 ```
 
 <details>

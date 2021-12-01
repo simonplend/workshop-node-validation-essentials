@@ -1,6 +1,6 @@
 import { createServer } from "node:http";
 
-const routesPath = process.argv[2];
+const routesPath = process.argv[2] || "./routes.js";
 const { routes } = await import(routesPath);
 
 /**
