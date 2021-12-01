@@ -85,6 +85,8 @@ to indicate that the new recipe was successfully created:
 +         response.statusCode = 201;
 ```
 
+Save the changes you have made.
+
 Make a valid `POST` request to the `/recipes` endpoint:
 
 ```sh
@@ -128,6 +130,8 @@ to the HTTP response stream with the `response.write` method:
 +         response.write(JSON.stringify(newRecipe));
 ```
 
+Save the changes you have made.
+
 Make a valid `POST` request to the `/recipes` endpoint:
 
 ```sh
@@ -161,6 +165,8 @@ to indicate that there was an error creating the new recipe:
 -         response.statusCode = 0 /** TODO */;
 +         response.statusCode = 500;
 ```
+
+Save the changes you have made.
 
 ## Make an invalid request
 
