@@ -2,7 +2,24 @@
 
 ...
 
+## Explore the skeleton HTTP server
+
+- **[app.js](app.js)**. Contains a basic HTTP server implementation.
+  - Uses the Node.js core [http](https://nodejs.org/api/http.html) module.
+  - TODO
+- **[server.js](server.js)**. TODO.
+- **[routes.js](routes.js)**. A skeleton route which you're going to configure,
+and add basic validation and error handling to.
+
+## TODO: Heading
+
 TODO: Make a request with cURL, receive an HTTP 404 error response
+
+```sh
+npm start
+```
+
+## TODO: Heading
 
 ```diff
 -     method: "" /** TODO */,
@@ -24,15 +41,21 @@ TODO: Make a request with cURL, receive an HTTP 404 error response
 +         response.statusCode = 201;
 ```
 
+TODO: cURL request
+
+## TODO: Heading
+
 ```diff
--         response.setHeader("Content-Type", undefined /** TODO */);
+-         response.setHeader("Content-Type", "" /** TODO */);
 +         response.setHeader("Content-Type", "application/json");
 ```
 
 ```diff
--         response.write(/** TODO */);
+-         response.write("" /** TODO */);
 +         response.write(JSON.stringify(newRecipe));
 ```
+
+## TODO: Heading
 
 ```diff
 -         response.statusCode = undefined /** TODO */;
