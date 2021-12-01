@@ -20,19 +20,16 @@ TODO: Mention data sanitization
 
 TODO: Introduce recipes API
 
-Explore the skeleton HTTP server:
+Explore the recipes API code:
 
-- **[app.js](app.js)**. Contains a basic HTTP server implementation.
-  - Uses the Node.js core [http](https://nodejs.org/api/http.html) module.
-  - TODO
-- **[server.js](server.js)**. TODO.
-- **[routes.js](routes.js)**. Contains a skeleton route. You're going to configure it,
-and then add basic validation and error handling to it.
+- **[app.js](app.js)** — Basic HTTP server implementation using Node.js core [http](https://nodejs.org/api/http.html) module.
+- **[server.js](server.js)** — Initialises new HTTP server instance.
+- **[routes.js](routes.js)** — Contains a skeleton route for you to develop with.
 
 ## Start your server and check it's running
 
 ```sh
-npm start
+npm run start:dev
 ```
 
 Make a valid `POST` request with [cURL](https://curl.se/) to the `/recipes` endpoint:
@@ -59,30 +56,30 @@ Open [routes.js](routes.js) in your code editor.
 Set the route `method` to `"POST"`:
 
 ```diff
--     method: "", /** TODO */
-+     method: "POST",
+- method: "", /** TODO */
++ method: "POST",
 ```
 
 Set the route `path` to `"/recipes"`:
 
 ```diff
--     path: "", /** TODO */
-+     path: "/recipes",
+- path: "", /** TODO */
++ path: "/recipes",
 ```
 
 Set the `recipe` variable to `request.body`:
 
 ```diff
--      const recipe = {}; /** TODO */
-+      const recipe = request.body;
+- const recipe = {}; /** TODO */
++ const recipe = request.body;
 ```
 
 Set `response.statusCode` to `201` ([Created](https://httpstatuses.com/201))
 to indicate that the new recipe was successfully created:
 
 ```diff
--         response.statusCode = 0; /** TODO */
-+         response.statusCode = 201;
+- response.statusCode = 0; /** TODO */
++ response.statusCode = 201;
 ```
 
 Save the changes you have made.
@@ -118,16 +115,16 @@ You will be sending a JSON formatted response body. You can indicate this to
 the client by setting the `Content-Type` header to `"application/json"`:
 
 ```diff
--         response.setHeader("Content-Type", ""); /** TODO */
-+         response.setHeader("Content-Type", "application/json");
+- response.setHeader("Content-Type", ""); /** TODO */
++ response.setHeader("Content-Type", "application/json");
 ```
 
 Format the `newRecipe` JavaScript object as a JSON string. Then write it
 to the HTTP response stream with the `response.write` method:
 
 ```diff
--         response.write(""); /** TODO */
-+         response.write(JSON.stringify(newRecipe));
+- response.write(""); /** TODO */
++ response.write(JSON.stringify(newRecipe));
 ```
 
 Save the changes you have made.
@@ -189,7 +186,7 @@ You're now going to fix these issues in the first exercise! 🐛
 - Check the `recipe` object has an `ingredients` property.
 - Check that the `ingredients` property is an array.
 - Check that the `ingredients` array has 1 or more items.
-- `return` to stop the route handler function continuing.
+- `return` early to stop the route handler function continuing.
 
 Check your work by running:
 
@@ -205,13 +202,22 @@ npm run <TODO>
   - Check `recipe.ingredients.length`
 </details>
 
+<details>
+  <summary><strong>Solution</strong></summary>
+
+  You can see a passing solution in
+  [completed/routes.exercise-1.1.completed.js](completed/routes.exercise-1.1.completed.js).
+</details>
+
 ## 🎯 Exercise 1.2
 
 **Send an appropriate HTTP error status code when the ingredients are invalid.**
 
-TODO: The HTTP response status code is currently 200 ([OK](TODO)) when the recipe ingredients are invalid.
+When the recipe ingredients are invalid, the HTTP response status code is
+currently 200 ([OK](https://httpstatuses.com/200)). This is a success status
+code, which is not appropriate in this context.
 
-- Pick the appropriate 4×× Client Error status code from [httpstatuses.com](https://httpstatuses.com/).
+- Find the appropriate 4×× Client Error status code on [httpstatuses.com](https://httpstatuses.com/).
 - Set the response HTTP status code.
 
 Check your work by running:
@@ -225,6 +231,13 @@ npm run <TODO>
 
   - You've received an "entity" which you can't process.
   - Set the value of `response.statusCode` to set the response HTTP status code.
+</details>
+
+<details>
+  <summary><strong>Solution</strong></summary>
+
+  You can see a passing solution in
+  [completed/routes.exercise-1.2.completed.js](completed/routes.exercise-1.2.completed.js).
 </details>
 
 ## ⏭️ Next part
