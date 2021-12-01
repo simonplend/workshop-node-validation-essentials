@@ -1,19 +1,13 @@
 # Part 5 — Integrating validation with Node.js frameworks
 
-...
+## Fastify
 
-<!--
+<!-- TODO: Reference framework-applications/fastify-javascript/ -->
 
-Key ideas:
+## Express
 
-- Adding validation to an application's routes (Fastify)
-- How to send Problem Details error responses (Fastify)
-- Integrating JSON Schema based validation in other frameworks
+<!-- TODO: Link to `express-json-validator-middleware` -->
 
-TODO:
+## Integrating JSON Schema based validation in other frameworks
 
-- [ ] Reference implementation in `framework-applications/fastify-javascript`
-- [ ] Link to `express-json-validator-middleware`
-- [ ] Research options in NestJS etc.
-
--->
+<!-- TODO: -->

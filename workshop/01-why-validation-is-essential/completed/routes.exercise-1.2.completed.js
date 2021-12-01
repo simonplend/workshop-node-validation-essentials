@@ -1,4 +1,4 @@
-import { db } from "../database.js";
+import { db } from "../../shared/database.js";
 
 export const routes = [
   {

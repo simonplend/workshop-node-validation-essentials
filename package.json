@@ -1,14 +1,13 @@
 {
   "name": "workshop-node-validation-essentials",
   "scripts": {
-    "postinstall": "npm install --prefix workshop/01-why-validation-is-essential",
+    "postinstall": "npm install --prefix workshop/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/simonplend/workshop-node-validation-essentials.git"
   },
-  "keywords": [],
   "author": "Simon Plenderleith <simon@simonplend.co.uk> (https://simonplend.com/)",
   "license": "MIT",
   "bugs": {

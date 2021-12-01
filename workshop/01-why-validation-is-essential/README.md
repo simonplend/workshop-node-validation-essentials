@@ -182,7 +182,7 @@ You're now going to fix these issues in the first exercise! 🐛
 
 ## 🎯 Exercise 1.1
 
-**Goal: Prevent the application accepting invalid recipe ingredients.**
+**Goal: Prevent the API from accepting invalid recipe ingredients.**
 
 - Check the `recipe` object has an `ingredients` property.
 - Check that the `ingredients` property is an array.
