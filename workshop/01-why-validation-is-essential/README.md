@@ -153,21 +153,6 @@ like this with the correct `Content-Type` header and the new recipe in the respo
 {"id":"865f7063-9e18-4937-84c5-7525e6c0a710","name":"Tabbouleh","ingredients":["parsley","2 lemons","cucumber","bulgur"]}
 ```
 
-## Set an HTTP error response status code
-
-If there's a problem inserting the new recipe into the database, the error
-is caught by `catch (error) { ... }` and logged to the console.
-
-Set `response.statusCode` to `500` ([Internal Server Error](https://httpstatuses.com/500))
-to indicate that there was an error creating the new recipe:
-
-```diff
--         response.statusCode = 0; /** TODO */
-+         response.statusCode = 500;
-```
-
-Save the changes you have made.
-
 ## Make an invalid request
 
 Make a `POST` request to the `/recipes` endpoint where the `ingredients`
