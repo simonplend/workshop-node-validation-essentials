@@ -4,7 +4,7 @@ export const db = {
   async insertRecipe(recipe) {
     return {
       id: randomUUID(),
-      ...recipe
+      ...recipe,
     };
-  }
+  },
 };
