@@ -120,6 +120,8 @@ Save your changes.
 
 ## Integrate the Ajv library
 
+Open [routes.js](routes.js) in your code editor.
+
 Import the Ajv library and create a new Ajv instance:
 
 ```javascript
@@ -151,8 +153,6 @@ Use Ajv to compile the recipe JSON schema:
 ```javascript
 const validateRecipe = ajv.compile(recipeSchema);
 ```
-
-Save your changes.
 
 ## Validate the request body against the recipe schema
 
@@ -360,31 +360,22 @@ ajv.addKeyword({
 
 - Note: `db.fetchRecipeByName` returns a recipe object if it finds a recipe with a matching name,
 or `null` if it doesn't.
-- Replace the validation and error handling code:
+- Replace the validation and error handling code in the route handler function:
 
-```diff
-- if (!validateRecipe(recipe)) {
--   console.error(validateRecipe.errors);
--
--   response.statusCode = 422;
--
--   response.write(JSON.stringify(validateRecipe.errors));
--
--   return;
-- }
-+ try {
-+   await validateRecipe(recipe);
-+ } catch (error) {
-+   if (!(error instanceof Ajv.ValidationError)) {
-+     throw error;
-+   }
-+
-+   response.statusCode = 422;
-+
-+   response.write(JSON.stringify(error.errors));
-+
-+   return;
-+ }
+```javascript
+try {
+  await validateRecipe(recipe);
+} catch (error) {
+  if (!(error instanceof Ajv.ValidationError)) {
+    throw error;
+  }
+
+  response.statusCode = 422;
+
+  response.write(JSON.stringify(error.errors));
+
+  return;
+}
 ```
 
 - Complete the lines of code which have `/** TODO */` comments on them.

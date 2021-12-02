@@ -11,7 +11,7 @@
 ```sh
 cp 02-creating-flexible-validation-rules/routes.js 03-generated-schema-types/routes.js
 
-cp -r 02-creating-flexible-validation-rules/schemas/ 03-generated-schema-types/
+cp -r 02-creating-flexible-validation-rules/schemas 03-generated-schema-types/
 ```
 
 ## Change into the directory for this part of the workshop
@@ -25,6 +25,12 @@ cd 03-generated-schema-types/
 You can combine generated types and JSDoc annotations to get type hinting and
 static type checking in JavaScript.
 
+The following packages have been pre-installed as `devDependencies`:
+
+- [json-schema-to-typescript](https://npm.im/json-schema-to-typescript)
+- [typescript](https://www.npmjs.com/package/typescript)
+- [@types/node](https://www.npmjs.com/package/@types/node) — Node.js types.
+
 The [json-schema-to-typescript](https://npm.im/json-schema-to-typescript) package
 can take your JSON schemas and generate TypeScript type definitions for ypu.
 It provides a library and a CLI. The CLI is pretty flexible, for example you can
@@ -32,16 +38,10 @@ point it at a directory full of schemas and it will generate the corresponding
 type definitions files for all of them:
 
 ```bash
-npx json2ts -i schemas/ -o types/
+npx json2ts -i schemas/ -o types/schemas/
 ```
 
-The following packages have been pre-installed as `devDependencies`:
-
-- [json-schema-to-typescript](https://npm.im/json-schema-to-typescript)
-- [typescript](https://www.npmjs.com/package/typescript)
-- [@types/node](https://www.npmjs.com/package/@types/node) — Node.js types.
-
-Define some npm run scripts in [package.json](package.json):
+Automate generating the types by adding some npm run scripts in [package.json](package.json):
 
 ```json
 {
@@ -107,12 +107,8 @@ check your JavaScript code:
 Add a couple more npm run scripts to [package.json](package.json):
 
 ```json
-{
-  "scripts": {
-    "check-types": "tsc",
-    "build": "npm run build:schema-types && npm run check-types"
-  }
-}
+"check-types": "tsc",
+"build": "npm run build:schema-types && npm run check-types"
 ```
 
 ## 🎯 Exercise 3.1
@@ -128,11 +124,7 @@ types, above the route handler function:
   handler: async function (request, response) {
 ```
 
-- Edit the existing `console.log` line so it contains a bug that causes a type error:
-
-```javascript
-console.log("Recipe ingredients:", recipe.ingredients.join(", "));
-```
+- Edit `recipe.ingredients.join(", ")` in the existing `console.log` line so it contains a bug that causes a type error.
 
 - Check your work by running:
 

@@ -164,14 +164,20 @@ and which contains the validation errors.
 - Sending the problem details as the body of an HTTP response, along with a
 suitable HTTP error status code.
 
+## Change back into the workshop directory
+
+```sh
+cd ..
+```
+
 ## Copy over your work so far
 
 ```sh
 cp 03-generated-schema-types/routes.js 04-validation-error-responses/routes.js
 
-cp -r 03-generated-schema-types/schemas/ 04-validation-error-responses/
+cp -r 03-generated-schema-types/schemas 04-validation-error-responses/
 
-cp -r 03-generated-schema-types/types/schemas/ 04-validation-error-responses/types/
+cp -r 03-generated-schema-types/types/schemas 04-validation-error-responses/types/
 ```
 
 ## Start your server
