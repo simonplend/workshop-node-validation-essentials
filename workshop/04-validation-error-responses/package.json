@@ -1,0 +1,16 @@
+{
+  "name": "04-validation-error-responses",
+  "type": "module",
+  "scripts": {
+    "schema-types:generate": "json2ts -i schemas/ -o types/schemas/",
+    "schema-types:clean": "rm -rf types/schemas/",
+    "build:schema-types": "npm run schema-types:clean && npm run schema-types:generate",
+    "check-types": "tsc",
+    "build": "npm run build:schema-types && npm run check-types"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "json-schema-to-typescript": "^10.1.5",
+    "typescript": "^4.5.2"
+  }
+}

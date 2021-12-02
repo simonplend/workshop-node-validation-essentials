@@ -20,6 +20,10 @@
 
 ```sh
 cp 03-generated-schema-types/routes.js 04-validation-error-responses/routes.js
+
+cp -r 03-generated-schema-types/schemas/ 04-validation-error-responses/
+
+cp -r 03-generated-schema-types/types/schemas/ 04-validation-error-responses/types/
 ```
 
 ## Start your server

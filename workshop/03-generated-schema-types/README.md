@@ -10,6 +10,7 @@
 
 ```sh
 cp 02-creating-flexible-validation-rules/routes.js 03-generated-schema-types/routes.js
+
 cp -r 02-creating-flexible-validation-rules/schemas/ 03-generated-schema-types/
 ```
 
@@ -45,8 +46,8 @@ Define some npm run scripts in [package.json](package.json):
 ```json
 {
   "scripts": {
-    "schema-types:generate": "json2ts -i schemas/ -o types/",
-    "schema-types:clean": "rm -rf types",
+    "schema-types:generate": "json2ts -i schemas/ -o types/schemas/",
+    "schema-types:clean": "rm -rf types/schemas/",
     "build:schema-types": "npm run schema-types:clean && npm run schema-types:generate"
   }
 }
@@ -237,6 +238,10 @@ const iceCreamData: IceCream = {
 
 This gives you the same type and static type checking behaviour that `json-schema-to-ts`
 provides, but with schema generation built in as well.
+
+## Further reading
+
+TODO: Pull in from email.
 
 ## ⏭️ Next part
 

@@ -2,7 +2,7 @@
   "name": "workshop",
   "type": "module",
   "scripts": {
-    "postinstall": "npm install --prefix 03-generated-schema-types/",
+    "postinstall": "npm install --prefix 03-generated-schema-types/ && npm install --prefix 04-validation-error-responses/",
     "start": "nodemon shared/server.js -- $(realpath $npm_config_part/routes.js)",
     "test": "tap --reporter spec --no-coverage --jobs 1 --timeout 10 --",
     "test:all": "tap */test/*.test.js  --reporter spec --no-coverage"
