@@ -75,7 +75,7 @@ test("POST /recipes route", async (t) => {
     );
   });
 
-  t.test("should send an error response when request body `ingredients` property is a string", (t) => {
+  t.test("should send an error response when request body `ingredients` property is not an array", (t) => {
     t.plan(2);
 
     makeRequest(

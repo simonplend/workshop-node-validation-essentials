@@ -40,8 +40,19 @@ Specify which properties are required:
 
 ```diff
   {
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
 +   "required": ["name", "ingredients"],
+```
+
+Don't allow any properties that aren't listed in this schema:
+
+```diff
+  {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": ["name", "ingredients"],
++   "additionalProperties": false,
 ```
 
 Restrict the length of the recipe `name`:
@@ -73,6 +84,8 @@ subschema:
 
 Don't allow any properties that aren't listed in this schema:
 
+TODO: Move this to after `required`
+
 ```diff
 +   "additionalProperties": false
 }
@@ -82,11 +95,23 @@ Save your changes.
 
 ## Integrate the Ajv library
 
-<!-- TODO: Pull in content from article 'Get started with validation in Node.js' -->
+Import the Ajv library and create a new Ajv instance:
+
+```javascript
+import Ajv from "ajv";
+```
+
+```javascript
+const ajv = new Ajv();
+```
 
 ## Import and compile the recipe schema
 
-<!-- TODO: -->
+```javascript
+import { loadJsonFile } from "../shared/helpers.js";
+```
+
+Above the `routes` array:
 
 ```javascript
 // TODO: Do this more cleanly
@@ -96,7 +121,7 @@ const recipeSchema = await loadJsonFile(
 );
 ```
 
-Inside the handler function, use Ajv to compile the recipe JSON schema:
+Inside the route handler function, use Ajv to compile the recipe JSON schema:
 
 <!-- TODO: Should this be inside or outside the handler function? -->
 
@@ -139,18 +164,19 @@ Make an invalid `POST` request to the `/recipes` endpoint:
 make invalid-request
 ```
 
-## 🎯 TODO: Exercise 2.1
+## 🎯 Exercise 2.1
 
-**Goal: Improve the validation of recipes.**
+**Goal: Change the recipe schema to allow for an improved `time` value.**
 
-- Change the schema for the `time` property to allow for an `object` like this
-instead of an integer:
+- The recipes need to include the times for preparation and cooking.
+- Change the schema for the `time` property from an `integer` to allow for an
+`object` like this:
 
-```javascript
+```json
 {
-  time: {
-    preparation: 20,
-    cooking: 45
+  "time": {
+    "preparation": 20,
+    "cooking": 45
   }
 }
 ```
@@ -164,14 +190,15 @@ npm test 02-creating-flexible-validation-rules/test/routes.exercise-2.1.test.js
 <details>
   <summary><strong>Exercise hints (try without them to start with)</strong></summary>
 
-  - TODO
+  - Take a look at the [object reference documentation on Understanding JSON Schema](https://json-schema.org/understanding-json-schema/reference/object.html).
+  - Make sure you specify which properties are required.
 </details>
 
 <details>
   <summary><strong>Solution</strong></summary>
 
   You can see a passing solution in
-  [completed/routes.exercise-2.1.completed.js](completed/routes.exercise-2.1.completed.js).
+  [completed/recipe.schema.exercise-2.1.completed.json](completed/recipe.schema.exercise-2.1.completed.json).
 </details>
 
 ## How schema builders can help us build our JSON schemas faster
