@@ -219,3 +219,7 @@ npm test 04-validation-error-responses/test/routes.exercise-4.1.test.js
   You can see a passing solution in
   [completed/routes.exercise-4.1.completed.js](completed/routes.exercise-4.1.completed.js).
 </details>
+
+## ⏭️ Next part
+
+[Part 5 — Integrating validation with Node.js frameworks](../05-integrating-validation-with-frameworks/README.md)
