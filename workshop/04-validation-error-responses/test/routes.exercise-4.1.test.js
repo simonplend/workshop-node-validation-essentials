@@ -96,7 +96,7 @@ test("POST /recipes route", async (t) => {
           console.log({ 'responseBody.validationErrors': responseBody.validationErrors });
 
           t.error(error);
-          t.match(response.statusCode, 422);
+          t.equal(response.statusCode, 422);
           t.match(response.headers['content-type'], "application/problem+json");
           t.match(responseBody, expectedResponseBody);
         }
