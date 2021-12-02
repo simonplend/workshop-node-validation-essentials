@@ -186,12 +186,13 @@ cp -r 03-generated-schema-types/types/schemas 04-validation-error-responses/type
 npm start --part=04-validation-error-responses
 ```
 
-## 🎯 TODO: Exercise 4.1
+## 🎯 Exercise 4.1
 
 **Send validation errors in a problem details error response.**
 
-- Define a problem type.
-- Construct a problem details object which includes validation errors.
+- Define a problem type (a URL as an identifier for the problem type, does not need to exist).
+- Construct a problem details object which includes validation errors in a
+`validationErrors` extension property.
 - Send the problem details in an HTTP error response.
 - Run the command `make invalid-request` to test your HTTP error response.
 
@@ -204,7 +205,12 @@ npm test 04-validation-error-responses/test/routes.exercise-4.1.test.js
 <details>
   <summary><strong>Exercise hints (try without them to start with)</strong></summary>
 
-  - TODO
+  - Problem details objects must include a:
+    - `type` (problem type URL)
+    - `title` (short description of the problem type)
+    - `status` (HTTP status code matching the HTTP status code of the response)
+  - Make sure you include the Ajv validation errors in a `validationErrors` extension property.
+  - Make sure you send a Problem Details `Content-Type` HTTP response header.
 </details>
 
 <details>

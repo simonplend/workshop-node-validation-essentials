@@ -14,8 +14,6 @@
 ## Never trust user input
 
 TODO: Pull in content from 'Email 1'
-
-TODO: Mention data sanitization
 -->
 
 ## The Recipes API
