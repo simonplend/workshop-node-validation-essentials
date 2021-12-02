@@ -44,6 +44,7 @@ ajv.addKeyword({
   },
 });
 
+// @ts-ignore
 const recipeSchema = await loadJsonFile(
   "./schemas/recipe.schema.json",
   import.meta.url
@@ -55,6 +56,7 @@ export const routes = [
   {
     method: "POST",
     path: "/recipes",
+    /** @type {import("./types").HandlerWithTypedBody<import("./types/schemas/recipe.schema").RecipeSchema>} */
     handler: async function (request, response) {
       const recipe = request.body;
 
@@ -74,7 +76,15 @@ export const routes = [
 
       const newRecipe = await db.insertRecipe(recipe);
 
-      console.log("Recipe ingredients:", recipe.ingredients.join(", "));
+      /**
+       * This line should cause the type error:
+       *
+       * routes.js:79:54 - error TS2339: Property 'join' does not exist on type '{ preparation: number; cooking: number; }'.
+       *
+       * 79       console.log("Recipe ingredients:", recipe.time.join(", "));
+       *                                                         ~~~~
+       */
+      console.log("Recipe ingredients:", recipe.time.join(", "));
 
       response.statusCode = 201;
 

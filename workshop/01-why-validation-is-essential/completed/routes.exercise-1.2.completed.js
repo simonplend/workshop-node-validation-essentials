@@ -24,7 +24,7 @@ export const routes = [
 
       const newRecipe = await db.insertRecipe(recipe);
 
-      console.log(`Recipe ingredients:`, recipe.ingredients.join(", "));
+      console.log("Recipe ingredients:", recipe.ingredients.join(", "));
 
       response.statusCode = 201;
 

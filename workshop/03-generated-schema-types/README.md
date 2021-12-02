@@ -13,10 +13,10 @@ cp 02-creating-flexible-validation-rules/routes.js 03-generated-schema-types/rou
 cp -r 02-creating-flexible-validation-rules/schemas/ 03-generated-schema-types/
 ```
 
-## Start your server
+## Change into the directory for this part of the workshop
 
 ```sh
-npm start --part=03-generated-schema-types
+cd 03-generated-schema-types/
 ```
 
 ## Using types in vanilla JavaScript with JSDoc and TypeScript
@@ -34,13 +34,12 @@ type definitions files for all of them:
 npx json2ts -i schemas/ -o types/
 ```
 
-The following packages have been pre-installed as `devDepenencies`:
+The following packages have been pre-installed as `devDependencies`:
 
-- [json-schema-to-typescript](TODO)
-- [typescript](TODO)
-- [@types/node](TODO) — Node.js types.
+- [json-schema-to-typescript](https://npm.im/json-schema-to-typescript)
+- [typescript](https://www.npmjs.com/package/typescript)
+- [@types/node](https://www.npmjs.com/package/@types/node) — Node.js types.
 
-<!-- TOOD: Rework this -->
 Define some npm run scripts in [package.json](package.json):
 
 ```json
@@ -63,12 +62,10 @@ When you run the script:
 npm run build:schema-types
 ```
 
-You'll see a file named [recipe.schema.d.ts](types/recipe.schema.d.ts) has been generated in the `types`
+You'll see a file named [recipe.schema.d.ts](types/schemas/recipe.schema.d.ts) has been generated in the `types/schemas/`
 directory. This contains a `RecipeSchema` TypeScript interface which has been
 inferred from the recipe JSON schema:
 
-
-<!-- TODO: Update this -->
 ```typescript
 /* tslint:disable */
 /**
@@ -77,11 +74,13 @@ inferred from the recipe JSON schema:
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface IceCreamSchema {
-  flavour: string;
-  price: number;
-  stock: number;
-  [k: string]: unknown;
+export interface RecipeSchema {
+  name: string;
+  ingredients: [string, ...string[]];
+  time?: {
+    preparation: number;
+    cooking: number;
+  };
 }
 ```
 
@@ -97,7 +96,7 @@ check your JavaScript code:
     "allowJs": true,
     "checkJs": true,
     "noEmit": true,
-    "strict": true
+    "strict": false
   },
   "include": ["*.js"],
   "exclude": ["node_modules"]
@@ -115,66 +114,45 @@ Add a couple more npm run scripts to [package.json](package.json):
 }
 ```
 
-<!-- TOOD: Move this into the exercise -->
+## 🎯 Exercise 3.1
 
-<!-- TODO: Rework -->
-Now let's create a file named **"example.js"** which uses this generated type:
+**Cause a type error in your application.**
 
-```javascript
-/** @type import('./types/ice-cream.schema').IceCreamSchema */
- const iceCreamData = {
-  flavour: "Pistacho",
-  price: 1.99,
-  stock: null
-};
+- There is a `HandlerWithTypedBody` generic function type defined in [types/index.d.ts](types/index.d.ts).
+- Add a JSDoc annotation, which uses the `HandlerWithTypedBody` and `RecipeSchema`
+types, above the route handler function:
+
+```diff
++ /** @type {import("./types").HandlerWithTypedBody<import("./types/schemas/recipe.schema").RecipeSchema>} */
+  handler: async function (request, response) {
 ```
 
-And then you can run:
+- Edit the existing `console.log` line so it contains a bug that causes a type error:
 
-```bash
-npm run check-types
+```javascript
+console.log("Recipe ingredients:", recipe.ingredients.join(", "));
+```
+
+- Check your work by running:
+
+```sh
+npm run build
 ```
 
 This will run the TypeScript compiler against you JavaScript code. It will
-statically check the types in our JavaScript code, and alert you to the type
-error in your code:
+statically check the types in the code, and should alert you to a type error
+in your code.
 
-```
-example.js:7:2 - error TS2322: Type 'null' is not assignable to type 'number'.
+- Fix the issue you've introduced on the `console.log` line and check that
+the type error has been resolved by running `npm run build`.
 
-7  stock: null,
-   ~~~~~
-
-  types/ice-cream.schema.d.ts:11:3
-    11   stock: number;
-         ~~~~~
-    The expected type comes from property 'stock' which is declared here on type 'IceCreamSchema'
-
-
-Found 1 error.
-```
-
-For convenience, you can run `npm run build` to automatically generate the types
-and type check our JavaScript all in one go.
-
-You now have automatic types from our JSON schemas, allowing us to type check our JavaScript code.
-
-## 🎯 TODO: Exercise 3.1
-
-**Integrate a generated schema type and eliminate the bug.**
-
-- TODO
-
-Check your work by running:
-
-```sh
-npm test 03-generated-schema-types/test/routes.exercise-3.1.test.js
-```
+You now have automatic types from your recipe JSON schema, allowing you to type
+check your JavaScript code.
 
 <details>
   <summary><strong>Exercise hints (try without them to start with)</strong></summary>
 
-  - TODO
+  - `console.log("Recipe ingredients:", recipe.time.join(", "));`
 </details>
 
 <details>
@@ -185,6 +163,8 @@ npm test 03-generated-schema-types/test/routes.exercise-3.1.test.js
 </details>
 
 ## TypeScript options for generating types from schemas
+
+If you're writing your Node.js applications in TypeScript there are a couple of different approaches you can take.
 
 <!-- TODO: Update code blocks -->
 
@@ -255,7 +235,8 @@ const iceCreamData: IceCream = {
 };
 ```
 
-This gives you the same type and static type checking behaviour that `json-schema-to-ts` provides, but with the added bonus of schema generation.
+This gives you the same type and static type checking behaviour that `json-schema-to-ts`
+provides, but with schema generation built in as well.
 
 ## ⏭️ Next part
 
