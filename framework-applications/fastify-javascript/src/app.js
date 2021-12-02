@@ -34,7 +34,7 @@ export default async function buildApp() {
         type: "https://example-api.com/problem/invalid-recipe-object",
         title: "Invalid recipe object in request body",
         status: statusCode,
-        validation_errors: error.validation
+        validationErrors: error.validation
       };
 
       reply.header("Content-Type", "application/problem+json");

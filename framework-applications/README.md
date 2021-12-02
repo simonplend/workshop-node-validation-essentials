@@ -12,5 +12,3 @@ cd <APPLICATION_DIRECTORY>
 
 npm run start
 ```
-
-Then follow the [testing steps](TESTING.md).

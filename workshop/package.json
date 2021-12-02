@@ -1,15 +1,21 @@
 {
   "name": "workshop",
   "type": "module",
+  "scripts": {
+    "postinstall": "npm install --prefix 03-generated-schema-types/ && npm install --prefix 04-validation-error-responses/",
+    "start": "nodemon shared/server.js -- $(realpath $npm_config_part/routes.js)",
+    "test": "tap --reporter spec --no-coverage --jobs 1 --timeout 10 --",
+    "test:all": "tap */test/*.test.js  --reporter spec --no-coverage"
+  },
   "devDependencies": {
-    "@types/node": "^16.11.11",
-    "json-schema-to-typescript": "^10.1.5",
     "nodemon": "^2.0.15",
     "simple-get": "^4.0.0",
     "tap": "^15.1.5",
-    "typescript": "^4.5.2"
+    "tsm": "^2.2.1"
   },
   "dependencies": {
-    "ajv": "^8.8.2"
+    "@sinclair/typebox": "^0.23.0",
+    "ajv": "^8.8.2",
+    "fluent-json-schema": "^3.0.1"
   }
 }

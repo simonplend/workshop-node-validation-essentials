@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$async": true,
+  "type": "object",
+  "required": ["name", "ingredients"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "uniqueName": true
+    },
+    "ingredients": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 100,
+        "glutenFree": false
+      }
+    },
+    "time": {
+      "type": "object",
+      "required": ["preparation", "cooking"],
+      "additionalProperties": false,
+      "properties": {
+        "preparation": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cooking": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

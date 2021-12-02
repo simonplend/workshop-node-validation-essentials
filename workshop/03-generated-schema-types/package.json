@@ -1,0 +1,10 @@
+{
+  "name": "03-generated-schema-types",
+  "type": "module",
+  "scripts": {},
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "json-schema-to-typescript": "^10.1.5",
+    "typescript": "^4.5.2"
+  }
+}
