@@ -2,12 +2,14 @@
 
 ## Fastify
 
-<!-- TODO: Reference framework-applications/fastify-javascript/ -->
+See the reference [Fastify application](../framework-applications/fastify-javascript/).
 
 ## Express
 
-<!-- TODO: Link to `express-json-validator-middleware` -->
+See the reference [Express application](https://gitlab.com/simonplend/example-express-api-best-practices)
+which integrates the [express-json-validator-middleware](https://github.com/simonplend/express-json-validator-middleware)
+library.
 
-## Integrating JSON Schema based validation in other frameworks
+<!-- ## Integrating JSON Schema based validation in other frameworks -->
 
 <!-- TODO: -->

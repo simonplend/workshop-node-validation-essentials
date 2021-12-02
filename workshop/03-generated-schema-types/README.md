@@ -163,6 +163,12 @@ check your JavaScript code.
   [completed/routes.exercise-3.1.completed.js](completed/routes.exercise-3.1.completed.js).
 </details>
 
+## Learn more about JSDoc based types
+
+- [JSDoc typings: all the benefits of TypeScript, with none of the drawbacks](https://gils-blog.tayar.org/posts/jsdoc-typings-all-the-benefits-none-of-the-drawbacks/). An in-depth article by [Gil Tayar](https://twitter.com/giltayar/).
+- [Do TypeScript without TypeScript](https://www.youtube.com/watch?v=xLDVfBUgD8U).
+A recording of [Simone Sanfratello](https://twitter.com/simonesanfradev)'s talk at NodeConf Remote 2021.
+
 ## TypeScript options for generating types from schemas
 
 If you're writing your Node.js applications in TypeScript there are a couple of different approaches you can take.
@@ -238,10 +244,6 @@ const iceCreamData: IceCream = {
 
 This gives you the same type and static type checking behaviour that `json-schema-to-ts`
 provides, but with schema generation built in as well.
-
-## Further reading
-
-TODO: Pull in from email.
 
 ## ⏭️ Next part
 

@@ -9,16 +9,50 @@
 
 ## Introducing JSON Schema and Ajv
 
-<!-- TODO: Pull in content from article 'Get started with validation in Node.js' -->
+The [JSON Schema specification](https://json-schema.org/specification.html) defines
+a JSON-based format for describing the structure of JSON data. This includes
+validation keywords, such as `type`, `required` and `properties`. These keywords
+allow us to create a definition of the format we expect data to be in. This is a
+"schema". It can be as simple as:
 
-TODO:
+```json
+{ "type": "string" }
+```
+
+To validate data against a schema, we need to use a validator library which
+implements the JSON Schema specification. The
+[Ajv (Another JSON Schema Validator)](https://ajv.js.org/) library is the most
+popular JSON Schema validator for client and server side JavaScript, downloaded
+over [50 million times every week](https://www.npmtrends.com/ajv) from npm.
+
 In this workshop you'll be using JSON Schema and Ajv in the context of an API
 built with Node.js, but it can be used anywhere: client side JavaScript,
 a command line tool etc.
 
 ## The benefits of defining validation rules with JSON Schema
 
-<!-- TODO: Pull in content from article 'Get started with validation in Node.js' -->
+We can use Ajv as a standalone library or we can integrate it with the framework
+we're using to build our Node.js application. Some Node.js frameworks even
+provide JSON Schema based validation with Ajv [built in](https://www.fastify.io/docs/latest/Validation-and-Serialization/).
+
+When we combine JSON Schema and Ajv, we have a flexible solution for implementing
+validation in our Node.js applications:
+
+- **Learn once, use everywhere.** The JSON Schema specification is cross-platform,
+and there are [validation libraries](https://json-schema.org/implementations.html)
+available for every popular programming language. We're not locked in to a library,
+framework or language. Once we've learnt the fundamentals of JSON Schema, we can
+use it everywhere.
+- **Portability.** Because JSON Schema is cross-platform, even if we decide to
+rewrite our applications in another framework or language, we can take our schemas with us.
+- **Speed**. Under the hood, Ajv compiles our JSON schemas into JavaScript code.
+This improves the performance of repeated validation of data against a schema.
+For example, schemas can be compiled by Ajv when our Node.js application starts.
+HTTP request data which the application receives can then be validated against the
+pre-compiled schemas.
+- **Active and supportive community**. There's an active community of folks on
+Slack who are happy to help out (the [JSON Schema website](https://json-schema.org/)
+has a link you can use to join).
 
 ## Copy over your work so far
 
@@ -190,7 +224,52 @@ npm test 02-creating-flexible-validation-rules/test/routes.exercise-2.1.test.js
 
 ## How schema builders can help us build our JSON schemas faster
 
-<!-- TODO: Pull in content from article 'Get started with validation in Node.js' -->
+JSON schemas are an expressive way of defining validation rules, but writing schemas
+"by hand" can sometimes get a bit much. There's a handy library called
+[fluent-json-schema](https://npm.im/fluent-json-schema) which can help us generate
+our JSON schemas. Let's give it a try.
+
+First we need to install the library by running the command `npm install fluent-json-schema`.
+Then we can import it and use it to generate our schema:
+
+```javascript
+import S from "fluent-json-schema";
+
+const iceCreamSchema = S.object()
+  .prop("flavour", S.string().required())
+  .prop("price", S.number().required())
+  .prop("stock", S.number().required())
+  // This method call returns the generated schema as an object.
+  .valueOf();
+```
+
+If we `console.log` the `iceCreamSchema` object, we can see the JSON schema we've
+generated:
+
+```json
+{
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"type": "object",
+	"properties": {
+		"flavour": { "type": "string" },
+		"price": { "type": "number" },
+		"stock": { "type": "number" }
+	},
+	"required": ["flavour", "price", "stock"]
+}
+```
+
+You'll notice this generated schema is almost identical to the `iceCreamSchema`
+we previously wrote "by hand". We can replace our hand crafted schema with this
+generated schema and the validation will behave in the same way as it did before.
+
+If we're writing our applications in TypeScript, the
+[TypeBox](https://www.npmjs.com/package/@sinclair/typebox) library is a great
+alternative to `fluent-json-schema`.
+
+Schema generation is down to your personal preference: some folks like to write
+raw JSON schemas "by hand", whereas others prefer to use a library which helps
+generate them. Try out both and pick whichever approach works best for you.
 
 ## Adding custom validation logic with Ajv keywords
 

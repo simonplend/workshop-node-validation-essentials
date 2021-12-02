@@ -8,17 +8,19 @@
 
 ## The HTTP request/response lifecycle
 
-TODO: Create a request / response diagram
+<!-- TODO: Create a request / response diagram -->
 
+<!--
 ## Never trust user input
 
 TODO: Pull in content from 'Email 1'
 
 TODO: Mention data sanitization
+-->
 
 ## The Recipes API
 
-TODO: Introduce recipes API
+In this workshop you'll be building an API for a recipes app.
 
 Explore the recipes API code:
 
@@ -176,7 +178,7 @@ TypeError: recipe.ingredients.join is not a function
 The code in the recipes route handler function is expecting the `ingredients`
 property to always be an array.
 
-TODO: Explain that the invalid recipe has been stored in the database.
+The invalid recipe data has also been stored in the database.
 
 You're now going to fix these issues in the first exercise! 🐛
 
