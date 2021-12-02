@@ -130,7 +130,6 @@ test("POST /recipes route", async (t) => {
     (t) => {
       t.plan(3);
 
-      // TODO: Update
       const expectedResponseBody = [
         {
           instancePath: "/time",
