@@ -1,11 +1,16 @@
-import { readFile } from "node:fs/promises";
+import { readFileSync } from "node:fs";
 
 /**
  * @param {string} filepath
  * @param {string} basePath
- * @returns {Promise<Object>}
+ * @returns {Object}
  */
-export async function loadJsonFile(filepath, basePath) {
-  // @ts-ignore
-  return JSON.parse(await readFile(new URL(filepath, basePath)));
+export function loadJsonFile(filepath, basePath) {
+
+  const jsonConfigFileContents = readFileSync(
+    new URL(filepath, basePath),
+    { encoding: "utf8" }
+  );
+
+  return JSON.parse(jsonConfigFileContents);
 }

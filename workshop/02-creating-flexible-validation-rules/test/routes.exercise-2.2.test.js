@@ -10,7 +10,7 @@ import { createHttpServer } from "../../shared/app.js";
 import { loadJsonFile } from "../../shared/helpers.js";
 
 test("recipe schema", async (t) => {
-  const recipeSchema = await loadJsonFile(
+  const recipeSchema = loadJsonFile(
     "../schemas/recipe.schema.json",
     import.meta.url
   );

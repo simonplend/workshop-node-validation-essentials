@@ -45,7 +45,7 @@ ajv.addKeyword({
 });
 
 // @ts-ignore
-const recipeSchema = await loadJsonFile(
+const recipeSchema = loadJsonFile(
   "./schemas/recipe.schema.json",
   import.meta.url
 );

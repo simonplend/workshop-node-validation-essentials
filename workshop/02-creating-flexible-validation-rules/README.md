@@ -141,11 +141,7 @@ import { loadJsonFile } from "../shared/helpers.js";
 Above the `routes` array:
 
 ```javascript
-// TODO: Do this more cleanly and update everywhere
-const recipeSchema = await loadJsonFile(
-  "./schemas/recipe.schema.json",
-  import.meta.url
-);
+const recipeSchema = loadJsonFile("./schemas/recipe.schema.json", import.meta.url);
 ```
 
 Use Ajv to compile the recipe JSON schema:
