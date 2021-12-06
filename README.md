@@ -44,16 +44,15 @@ TODO
 ```
 -->
 
-## Just before the workshop begins
+## Starting the workshop
 
-Please open:
+To make sure you're ready to start the workshop:
 
-- This project in your code editor.
-- A terminal window for running commands.
+- Open this project in your code editor.
+- Open a terminal window for running commands, and `cd` to the directory for this project.
+- Open [Part 1](https://github.com/simonplend/workshop-node-validation-essentials/blob/main/01-why-validation-is-essential/README.md) of the workshop in your browser.
 
-In your terminal, `cd` into the `workshop` directory in this project.
-
-You're now ready for the workshop! 🙌
+Let's get started! 🚀
 
 ## License
 
