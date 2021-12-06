@@ -164,7 +164,7 @@ and which contains the validation errors.
 - Sending the problem details as the body of an HTTP response, along with a
 suitable HTTP error status code.
 
-## Change back into the workshop directory
+## Change back into the root directory
 
 ```sh
 cd ..
