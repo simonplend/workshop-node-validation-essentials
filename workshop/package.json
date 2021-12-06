@@ -3,7 +3,9 @@
   "type": "module",
   "scripts": {
     "postinstall": "npm install --prefix 03-generated-schema-types/ && npm install --prefix 04-validation-error-responses/",
-    "start": "nodemon shared/server.js -- $(realpath $npm_config_part/routes.js)",
+    "server:part-01": "nodemon shared/server.js -- $PWD/01-why-validation-is-essential/routes.js",
+    "server:part-02": "nodemon shared/server.js -- $PWD/02-creating-flexible-validation-rules/routes.js",
+    "server:part-04": "nodemon shared/server.js -- $PWD/04-validation-error-responses/routes.js",
     "test": "tap --reporter spec --no-coverage --jobs 1 --timeout 10 --",
     "test:all": "tap */test/*.test.js  --reporter spec --no-coverage"
   },

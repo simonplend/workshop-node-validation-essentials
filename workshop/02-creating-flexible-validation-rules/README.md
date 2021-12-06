@@ -63,7 +63,7 @@ cp 01-why-validation-is-essential/routes.js 02-creating-flexible-validation-rule
 ## Start your server
 
 ```sh
-npm start --part=02-creating-flexible-validation-rules
+npm run server:part-02
 ```
 
 ## Add constraints to the recipe JSON schema

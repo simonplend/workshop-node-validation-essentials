@@ -30,7 +30,7 @@ Explore the recipes API code:
 ## Start your server and check it's running
 
 ```sh
-npm start --part=01-why-validation-is-essential
+npm run server:part-01
 ```
 
 Make a valid `POST` request with [cURL](https://curl.se/) to the `/recipes` endpoint:

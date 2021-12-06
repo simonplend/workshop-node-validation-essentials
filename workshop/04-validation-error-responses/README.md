@@ -183,7 +183,7 @@ cp -r 03-generated-schema-types/types/schemas 04-validation-error-responses/type
 ## Start your server
 
 ```sh
-npm start --part=04-validation-error-responses
+npm run server:part-04
 ```
 
 ## 🎯 Exercise 4.1
