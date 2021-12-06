@@ -339,7 +339,6 @@ ajv.addKeyword({
   type: "", /** TODO */
   error: {
     message: "", /** TODO */
-    params: {}
   },
   validate: async function checkNameIsUnique(schema, nameValue) {
     if (schema === false) {

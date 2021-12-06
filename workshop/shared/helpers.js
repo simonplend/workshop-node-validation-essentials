@@ -8,6 +8,7 @@ import { readFileSync } from "node:fs";
 export function loadJsonFile(filepath, basePath) {
 
   const jsonConfigFileContents = readFileSync(
+    // @ts-ignore
     new URL(filepath, basePath),
     { encoding: "utf8" }
   );
