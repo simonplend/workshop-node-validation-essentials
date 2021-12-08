@@ -53,7 +53,3 @@ To make sure you're ready to start the workshop:
 - Open [Part 1](https://github.com/simonplend/workshop-node-validation-essentials/blob/main/01-why-validation-is-essential/README.md) of the workshop in your browser.
 
 Let's get started! 🚀
-
-## License
-
-Licensed under [MIT License](./LICENSE.md).
