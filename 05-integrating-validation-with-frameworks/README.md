@@ -2,7 +2,7 @@
 
 ## Fastify
 
-See the reference [Fastify application](../framework-applications/fastify-javascript/).
+See the reference [Fastify application](../applications/fastify-javascript/).
 
 ## Express
 
