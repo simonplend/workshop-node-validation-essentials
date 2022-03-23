@@ -6,7 +6,7 @@
 - Using validation to help us handle unsafe user input
 - Closing the validation loop with HTTP error responses
 
-## The HTTP request/response lifecycle
+<!-- ## The HTTP request/response lifecycle -->
 
 <!-- TODO: Create a request / response diagram -->
 
